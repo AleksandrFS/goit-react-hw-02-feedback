@@ -22,6 +22,7 @@ export class App extends Component {
 
   render() {
     const { good, neutral, bad } = this.state;
+    const noFeedbacks = (good === 0 && neutral === 0 && bad === 0);
     return (
       <>
         <Section title="Please leave feedback">
@@ -32,7 +33,7 @@ export class App extends Component {
         </Section>
 
         <Section title="Statistics">
-          {good === 0 && neutral === 0 && bad === 0 ? (
+          {noFeedbacks ? (
             <Notification message={'There is no feedback'} />
           ) : (
             <Statistics
